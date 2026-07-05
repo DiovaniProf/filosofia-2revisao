@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz - Filosofia Aulas 17 a 25</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="overlayHistorico" class="overlay-historico"></div>
+<aside id="historicoLateral" class="historico-lateral">
+<div class="historico-topo">
+<h2>Histórico</h2>
+<button id="btnFecharHistorico" class="btn-fechar" type="button">×</button>
+</div>
+<h3>Entradas</h3>
+<ul id="listaHistorico"></ul>
+<h3>Top 5</h3>
+<ol id="listaRanking"></ol>
+<button id="btnLimparHistorico" type="button">Limpar histórico</button>
+</aside>
+<button id="btnHistorico" class="btn-historico" type="button">☰ Histórico</button>
+<main class="app">
+<section id="telaInicial" class="tela ativa">
+<div class="card-principal">
+<h1 class="titulo-principal-home">QUIZ DE REVISÃO DE FILOSOFIA</h1>
+<div class="chamada-revisao">
+<p class="titulo-bloco-entrada"><strong>ESCOLHA O BLOCO DE ENTRADA</strong></p>
+<p class="texto-rodadas">
+Cada opção soma no máximo 100 pontos.
+</p>
+</div>
+<div class="blocos-entrada" aria-label="Escolha o bloco de questões">
+<button class="opcao-bloco selecionada" type="button" data-bloco="completo">
+<strong>Aulas 17 a 25</strong>
+<span>3 Rodadas</span>
+<small>Total de 18 questões</small>
+</button>
+<button class="opcao-bloco" type="button" data-bloco="aulas17a20">
+<strong>Aulas 17 a 20</strong>
+<span>2 Rodadas</span>
+<small>Total de 8 questões</small>
+</button>
+<button class="opcao-bloco" type="button" data-bloco="aulas21a25">
+<strong>Aulas 21 a 25</strong>
+<span>2 Rodadas</span>
+<small>Total de 10 questões</small>
+</button>
+</div>
+<p id="textoConfiguracaoAtual" class="configuracao-atual">
+Selecionado: Aulas 17 a 25 | 3 rodadas | 18 questões | 100 pontos.
+</p>
+<a
+id="btnAulasConteudo"
+class="btn-link-aulas"
+href="https://docs.google.com/document/d/1e-t4NfZ94QzeZFoGqFZTA-wBKVojUXLVr06bE-8r-7 o/edit?usp=sharing"
+target="_blank"
+rel="noopener noreferrer"
+>
+Aulas 17-25_FILOSOFIA
+</a>
+<label class="rotulo-campo" for="nomeJogador">Nome do estudante</label>
+<input
+id="nomeJogador"
+class="campo-nome"
+type="text"
+placeholder="Digite seu nome com 3 caracteres ou mais"           autocomplete="off"
+/>
+<button id="btnComecar" class="btn-acesso" type="button">           ACESSAR QUIZ
+</button>
+</div>
+</section>
+<section id="telaCarregamento" class="tela">
+<div class="card-principal">
+<h1>Analisando arquivo...</h1>
+<p id="nomeArquivo"></p>
+<div class="barra">
+<div id="progresso"></div>
+</div>
+<p id="status">Lendo conteúdo...</p>
+</div>
+</section>
+<section id="telaQuiz" class="tela">
+<header class="cabecalho">
+<div class="identificacao-quiz">
+<h1>Quiz</h1>
+<h2 id="tituloArquivo">Banco de questões</h2>
+<p id="jogadorAtual"></p>
+</div>
+<div class="painel-status painel-sem-pontos">
+<div class="info-card">
+<span>Rodada</span>
+<strong id="numeroRodada">1/3</strong>
+</div>
+<div class="info-card">
+<span>Questão</span>
+<strong id="numeroQuestao">1/6</strong>
+</div>
+<div class="info-card info-card-aviso">
+<span>Pontuação</span>
+<strong>Ao final da rodada</strong>
+</div>
+<button id="btnSair" class="btn-sair" type="button">Sair</button>
+</div>
+</header>
+<section class="quiz-card">
+<p id="pergunta"></p>
+<div id="alternativas" class="alternativas"></div>
+<button id="btnConfirmar" type="button">Confirmar resposta</button>
+<div id="feedback"></div>
+<div class="area-anotacoes">
+<h3>Bloco de notas da questão</h3>
+<p>
+Use este espaço antes ou depois de marcar a alternativa.
+Registre uma ideia, dúvida, justificativa, cálculo, resumo ou observação.           </p>
+<textarea
+id="anotacaoQuestao"
+placeholder="Digite aqui suas anotações sobre esta questão..."
+></textarea>
+<button id="btnContinuar" class="btn-continuar oculto" type="button">
+CONTINUAR
+</button>
+</div>
+</section>
+</section>
+<section id="telaFinal" class="tela">
+<div class="card-principal">
+<h1 id="tituloFinal">Rodada concluída</h1>
+<h2 id="resultadoFinal"></h2>
+<div class="resumo-final">
+<h2>Resumo da rodada</h2>
+<div class="grade-resumo">
+<div class="resumo-card">
+<span>Rodada atual</span>
+<strong id="resumoRodada">1/3</strong>
+</div>
+<div class="resumo-card">
+<span>Acertos na rodada</span>
+<strong id="resumoAcertosRodada">0/6</strong>
+</div>
+<div class="resumo-card">
+<span>Pontos da rodada</span>
+<strong id="resumoPontosRodada">0/33,33</strong>
+</div>
+<div class="resumo-card">
+<span>Total acumulado</span>
+<strong id="resumoPontosTotal">0/100</strong>
+</div>
+<div class="resumo-card resumo-largo">
+<span>Nível de aprendizagem</span>
+<strong id="resumoStatus">Em andamento</strong>
+</div>
+</div>
+<p id="mensagemFinal" class="mensagem-organizada"></p>
+<p id="mensagemRodada" class="mensagem-organizada"></p>
+</div>
+<div class="registros-tela">
+<h2>Correção da rodada e registros do estudante</h2>
+<p class="texto-ajuda">
+O resultado correto ou incorreto aparece somente aqui, ao final de cada rodada.           </p>
+<div id="listaRegistrosTela" class="lista-registros"></div>
+</div>
+<div class="acoes-rodada">
+<button id="btnProximaRodada" type="button">INICIAR PRÓXIMA RODADA</button>           <button id="btnReiniciarJogo" type="button">REINICIAR JOGO</button>
+<button id="btnRetornarInicial" class="btn-retornar-inicial" type="button">
+RETORNAR A TELA INICIAL
+</button>
+</div>
+<div class="acoes-notas">
+<h2>Relatório de respostas</h2>
+<p>
+Baixe o relatório em formato .doc com cabeçalho, pontuação,
+nível de aprendizagem e anexo com os rascunhos do participante.
+</p>
+<button id="btnBaixarNotas" type="button">Baixar relatório</button>
+</div>
+<h2>5 melhores resultados gerais</h2>
+<ol id="rankingFinal" class="ranking-final"></ol>
+</div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
